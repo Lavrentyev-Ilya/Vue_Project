@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div id="nav">
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
@@ -28,3 +29,35 @@
   color: #42b983;
 }
 </style>
+=======
+  <div>
+    <button v-on:click="addLikes">Likes</button>
+    <button v-on:click="addDislikes">Dislikes</button>
+  </div>
+  <div>Количество Likes <strong>{{ likes }}</strong></div>
+  <div>Количество Likes <strong>{{ dislikes }}</strong></div>
+</template>
+
+<script>
+  export default {
+    data(){
+      return{
+        likes: 0,
+        dislikes: 5,
+      }
+    },
+    methods: {
+      addLikes(){
+        this.likes++
+      },
+      addDislikes(){
+        this.dislikes++
+      }
+    }
+  }
+</script>
+
+<style>
+
+</style>
+>>>>>>> 661c6fe (init)
