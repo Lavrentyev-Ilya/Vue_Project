@@ -1,63 +1,66 @@
 <template>
-<<<<<<< HEAD
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div class="app">
+    <form>
+      <input class="input" type="text" placeholder="Название">
+      <input class="input" type="text" placeholder="Описание">
+      <button class="btn" @click="createPost">Create post</button>
+    </form>
+    <div class="post" v-for="post in posts" v-bind:key="post.id">
+      <div><strong>Название</strong> {{post.title}}</div>
+      <div><strong>Описание</strong> {{post.body}}</div>
+    </div>
   </div>
-  <router-view/>
-</template>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
-=======
-  <div>
-    <button v-on:click="addLikes">Likes</button>
-    <button v-on:click="addDislikes">Dislikes</button>
-  </div>
-  <div>Количество Likes <strong>{{ likes }}</strong></div>
-  <div>Количество Likes <strong>{{ dislikes }}</strong></div>
 </template>
 
 <script>
   export default {
     data(){
       return{
-        likes: 0,
-        dislikes: 5,
+        posts: [
+          {id: 1, title: 'Behappy Eng', body: 'Описание - 1'},
+          {id: 2, title: 'Behappy Eng', body: 'Описание - 2'},
+          {id: 3, title: 'Behappy Eng', body: 'Описание - 3'},
+          {id: 4, title: 'Behappy Eng', body: 'Описание - 4'}
+        ]
       }
     },
     methods: {
-      addLikes(){
-        this.likes++
-      },
-      addDislikes(){
-        this.dislikes++
+      createPost(){
+        this.posts.push({id: 5, title: 'Behappy Eng', body: 'Описание - 5'})
       }
     }
   }
 </script>
 
 <style>
-
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .app {
+    padding: 20px;
+  }
+  .post{
+    padding: 15px;
+    border: 3px solid #0a6c41;
+    margin-top: 15px;
+  }
+  form{
+    display: flex;
+    flex-direction: column;
+  }
+  .input{
+    width: 50%;
+    border: 1px solid coral;
+    padding: 10px 15px;
+    margin-top: 10px;
+  }
+  .btn{
+    margin-top: 10px;
+    align-self: flex-end;
+    padding: 10px 15px;
+    background: none;
+    border: 2px solid #0a6c41;
+  }
 </style>
->>>>>>> 661c6fe (init)
